@@ -16,17 +16,17 @@ v = -(2*K)*((2*x*y)/(x**2 + y**2)**2)
 
 #PARÁMETROS PARA EL PILAR DE REFERENCIA
 theta = np.linspace( 0 , 2 * np.pi , 150 )
-radius = 2
+radius = np.sqrt(2*K/U)
 a = radius * np.cos( theta )
 b = radius * np.sin( theta )
  
 #CREACIÓN Y CONFIGURACIÓN DE PLOT
 figure, axes = plt.subplots( 1 )
-axes.plot( a, b )
 axes.set_aspect( 1 )
 
 #PLOT
-plt.streamplot(x, y, u, v, density = 1.5)
+plt.streamplot(x, y, u, v, density = 1.5, color = 'orange')
+axes.plot( a, b )
 
 #CONFIGURACIONES ADICIONALES
 plt.title('Campo de velocidades sobre pilar')
